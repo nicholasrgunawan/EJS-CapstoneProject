@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJS Capstone Project</title>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+
+    <h1>Create a form</h1>
+    <ul class="navbar-nav">
+    <li class="nav-item">
+      <a style="color: black;" class="nav-link" href="/table"><i class="far fa-list-alt"></i>See submitted form</a>
+    </li>
+  </ul>
+    <form action="/submit" method="POST">
+      <input
+        name="name"
+        type="text"
+        class="feedback-input"
+        placeholder="Name"
+      />
+      <input
+        name="email"
+        type="text"
+        class="feedback-input"
+        placeholder="Email"
+      />
+      <textarea
+        name="text"
+        class="feedback-input"
+        placeholder="Comment"
+      ></textarea>
+      <input type="submit" value="SUBMIT" />
+    </form>
+    <%- include("partials/footer.ejs") %>
+  </body>
+</html>

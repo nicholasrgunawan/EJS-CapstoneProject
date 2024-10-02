@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Data</title>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <h1>Submitted Data</h1>
+    <table style="margin-left: auto; margin-right: auto; width: 100%;" border="1">
+        <tr style="height: 50px;">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Comment</th>
+            <th>Actions</th>
+        </tr>
+        <% submissions.forEach(function(submission, index) { %> <!-- Correctly passing index here -->
+        <tr>
+            <td><%= submission.name %></td>
+            <td><%= submission.email %></td>
+            <td><%= submission.text %></td>
+            <td>
+                <a class="nav-link" style="display: inline-block;" href="/delete/<%= index %>">
+                    <i style="color: red;" class="fa fa-trash"></i>
+                </a>
+                <a class="nav-link" style="display: inline-block;" href="/edit/<%= index %>">
+                    <i style="color: black;" class="fa fa-edit"></i>
+                </a>
+            </td>
+        </tr>
+        <% }); %> <!-- Correctly closing the forEach loop -->
+        <tr style="border: 0;">
+            <td colspan="4"><a href="/form"><i style="color: green;" class="fa fa-plus"></a></i></td>
+        </tr>
+    </table>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
